@@ -1,7 +1,9 @@
 FROM nginx:stable-alpine
 WORKDIR /app
-ARG MY_TEST
+ARG NPMRC
 
-RUN echo $(MY_TEST) 
+COPY . .
+
+RUN echo NPMRC
 EXPOSE 80
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
