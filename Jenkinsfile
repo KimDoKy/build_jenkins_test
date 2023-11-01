@@ -5,8 +5,7 @@ pipeline {
         stage('== Build Docker Image ==')  {
             steps {
                 echo 'Building..'
-				echo "$NPMRC"
-				sh "sh ${env.WORKSPACE}/test_npmrc.sh"
+				sh "sh ${env.WORKSPACE}/create_npmrc.sh"
 				sh "docker build -t build_test -f ${env.WORKSPACE}/Dockerfile ."
             }
         }
